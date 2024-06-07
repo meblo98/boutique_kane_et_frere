@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategorieController;
 
 // Route::get('/', function () {
 //     return view('authentifications.register');
@@ -23,3 +24,8 @@ Route::delete('connexion',[AuthController::class, 'deconnexion'])->name('deconne
 // Backoffice
 
 Route::get('/admin', [AuthController::class, 'dashboard'])->name('dashboard');
+
+// categorie
+
+Route::get('categorie', [CategorieController::class, 'index'])->name('categorie');
+Route::post('categorie', [CategorieController::class, 'ajout'])->name('ajoutCategorie');
