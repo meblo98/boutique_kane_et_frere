@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('reference');
             $table->string('designation');
             $table->integer('prix_unitaire');
+            $table->integer('quantite');
             $table->string('image');
             $table->enum('etat',['disponible', 'en_rupture', 'en_stock']);
             $table->unsignedBigInteger('user_id');

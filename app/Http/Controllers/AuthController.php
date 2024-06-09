@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,9 @@ class AuthController extends Controller
             'password'=>$request->password,
         ];
         if(Auth::attempt($credentials)){
-           return redirect()->route('dashboard')->with('success','Connexion');
+            
+            $request->session()->regenerate();
+           return redirect()->intended(route('dashboard'))->with('success','Connexion');
 
         }else{
             return back()->with('error','Email ou mots de passe incorrect');
