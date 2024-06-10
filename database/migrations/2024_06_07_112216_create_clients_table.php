@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('nom');
             $table->string('adresse');
-            $table->integer('telephone')->unique();
+            $table->integer('telephone');
             $table->timestamps();
         });
     }

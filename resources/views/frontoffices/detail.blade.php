@@ -19,7 +19,7 @@
             </article>
 
             <nav class="blog-pagination" aria-label="Pagination">
-                <a class="btn btn-outline-primary rounded-pill" href="{{route('client')}}">Commander</a>
+                <a class="btn btn-outline-primary rounded-pill" href="{{route('client'), $produits->id}}">Commander</a>
                 <a class="btn btn-outline-secondary rounded-pill disabled" href="{{route('accueil')}}" aria-disabled="true">Retourner</a>
             </nav>
 
