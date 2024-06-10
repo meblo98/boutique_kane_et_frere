@@ -18,9 +18,22 @@ class ProduitController extends Controller
 
     public function index()
     {
-
-        $produits = Produit::paginate(10);
+        $produits = Produit::paginate(5);
         return view('backoffices.produit', compact('produits'));
+    }
+    public function accueil(){
+        $produits = Produit::latest()->take(6)->get();
+        return view ('frontoffices.index', compact('produits')); 
+
+    }
+    public function produit(){
+        $produits = Produit::all();
+        return view ('frontoffices.produit', compact('produits')); 
+    }
+
+    public function detail($id){
+        $produits = Produit::find($id);
+        return view ('frontoffices.detail', compact('produits'));
     }
 
     public function ajout()
@@ -92,7 +105,7 @@ class ProduitController extends Controller
         $categories = Categorie::all();
         return view('backoffices.modifier_produit')->with(['produits' => $produits, 'categories' => $categories]);
     }
-    
+
 
     public function modification(Request $request, string $id){
 

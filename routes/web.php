@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\CategorieController;
 
 // Route::get('/', function () {
 //     return view('authentifications.register');
@@ -11,7 +13,8 @@ use App\Http\Controllers\ProduitController;
 
 //creation de compte user
 
-Route::get('/',[AuthController::class,'compte'])->name('compte');
+
+Route::get('/compte',[AuthController::class,'compte'])->name('compte');
 Route::post('/compte',[AuthController::class,'creerCompte'])->name('creerCompte');
 
 //conexion user
@@ -42,3 +45,22 @@ Route::post('ajouter', [ProduitController::class, 'ajouter'])->name('ajouter');
 Route::get('modifer/{id}', [ProduitController::class, 'modifier'])->name('modifier');
 Route::patch('modifier/{id}', [ProduitController::class, 'modification'])->name('modification');
 Route::delete('ajout/{id}', [ProduitController::class, 'supprimer'])->name('deleteProduit');
+
+// commande
+
+Route::get('commande', [CommandeController::class, 'index'])->name('commande');
+
+
+// ---------------------------frontoffice----------------------------------------------
+
+Route::get('/', [ProduitController::class, 'accueil'])->name('accueil');
+Route::get('accueil', [ProduitController::class, 'accueil'])->name('accueil');
+
+// produits
+Route::get('produit', [ProduitController::class, 'produit'])->name('accueil.produit');
+Route::get('produit/detail/{id}', [ProduitController::class, 'detail'])->name('detail');
+
+// client
+
+Route::get('commande', [ClientController::class, 'index'])->name('client');
+Route::post('commande', [ClientController::class, 'ajout'])->name('ajoutClient');

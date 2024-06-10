@@ -54,17 +54,12 @@
                                         <td> {{ $categorie->id }}</td>
                                         <td> {{ $categorie->libelle }}</td>
                                         <td>
-                                            <a class="btn d-inline-flex mb-3" href="">
-                                                <i class="fa fa-edit"> </i>
+                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"> </i>
                                             </a>
-                                            <form action="{{ route('deleteCategorie', $categorie->id) }}" method="POST"
-                                                style="display:inline">
+                                            <form action="{{ route('deleteCategorie', $categorie->id) }}" method="POST" style="display:inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i
-                                                        class="fa fa-trash"></i>
-                                                    supprimer
-                                                </button>
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
                                             </form>
                                         </td>
                                     </tr>

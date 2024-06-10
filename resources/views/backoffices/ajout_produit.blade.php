@@ -44,6 +44,20 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">
+                                                <label for="title">Nom produit</label>
+                                                <input type="text" name="nom" id="nom" class="form-control"
+                                                    placeholder="Réference">
+                                            </div>
+                                        </div>      <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label for="title">Description</label>
+                                            
+                                                <input type="text" name="nom" id="nom" class="form-control"
+                                                    placeholder="Réference">
+                                            </div>
+                                        </div>                      
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
                                                 <label for="title">Réference</label>
                                                 <input type="text" name="reference" id="reference" class="form-control"
                                                     placeholder="Réference">
