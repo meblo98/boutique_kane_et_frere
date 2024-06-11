@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategorieController extends Controller
 {
@@ -13,14 +14,19 @@ class CategorieController extends Controller
     }
 
     public function index(){
-        $categories = Categorie::all();
-        return view ('backoffices.categorie', compact('categories'));
+        if(Auth::check()){
+            $categories = Categorie::all();
+            return view ('backoffices.categorie', compact('categories'));
+        }
+
+        return redirect("connexion")->withSuccess('Opps! accés refusé');
+
     }
 
     // public function ajouter(){
     //     return view ('backoffices.categorie');
     // }
-    
+
     public function ajout(Request $request){
 
         $request->validate([

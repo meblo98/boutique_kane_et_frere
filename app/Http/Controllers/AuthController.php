@@ -62,7 +62,7 @@ class AuthController extends Controller
             'password'=>$request->password,
         ];
         if(Auth::attempt($credentials)){
-            
+
             $request->session()->regenerate();
            return redirect()->intended(route('dashboard'))->with('success','Connexion');
 
@@ -73,7 +73,11 @@ class AuthController extends Controller
 
     }
     public function dashboard(){
-        return view('backoffices.dashboard');
+        if(Auth::check()){
+            return view('backoffices.dashboard');
+        }
+
+        return redirect("connexion")->withSuccess('Opps! accés refusé');
     }
     public function deconnexion(){
         Auth::logout();
