@@ -48,7 +48,9 @@ Route::delete('ajout/{id}', [ProduitController::class, 'supprimer'])->name('dele
 
 // commande
 
-Route::get('commande', [CommandeController::class, 'index'])->name('commande');
+Route::get('commandeProduit', [CommandeController::class, 'index'])->name('commande');
+Route::get('commandeProduit/{id}', [CommandeController::class, 'modifier'])->name('modifier');
+Route::patch('commandeProduit/{id}', [CommandeController::class, 'modification'])->name('modification');
 
 
 // ---------------------------frontoffice----------------------------------------------
